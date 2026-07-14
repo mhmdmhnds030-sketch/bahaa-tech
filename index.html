@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>bahaa tech</title>
+    <style>
+        /* حركات الظهور والدخول الناعم للشاشة */
+        @keyframes fellbackground {
+            from {
+                background-color: #ffffff;
+            }
+
+            to {
+                background-color: #f0f2f5;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 0;
+            flex-direction: column;
+            min-height: 100vh;
+            animation: fellbackground 1s ease-out forwards;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            direction: rtl;
+            /* لترتيب العناصر بشكل عربي صحيح يمين ويسار */
+        }
+
+        span {
+            position: absolute;
+        }
+
+        /* تنسيق شريط التنقل العلوي الثابت والموزع */
+        .navbar {
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            /* يفصل الشعار يمين والأزرار يسار */
+            align-items: center;
+            padding: 15px 50px;
+            box-sizing: border-box;
+            margin-bottom: 40px;
+        }
+
+        /* تنسيق الشعار (لوجو اللابتوب) */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: 800;
+            color: #1a202c;
+            user-select: none;
+            text-decoration: none;
+        }
+
+        .logo .logo-icon {
+            background: linear-gradient(135deg, #3182ce, #00b4d8);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(49, 130, 206, 0.4);
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, #3182ce, #0077b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* قائمة أزرار الناف بار العلوية */
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-links a:hover {
+            color: #3182ce;
+            background-color: #ebf8ff;
+            border-color: #3182ce;
+            box-shadow: 0 0 10px rgba(66, 153, 225, 0.4);
+        }
+
+        /* حاوية مرنة تجمع الصناديق والفورم */
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* تنسيق الصندوق الأبيض والظل الفخم للنموذج */
+        .from-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            box-sizing: border-box;
+            animation: slideUp 0.8s ease-out forwards;
+        }
+
+        .input-group {
+            position: relative;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+            width: 300px;
+            display: flex;
+        }
+
+        .input-group span {
+            position: absolute;
+            right: 12px;
+            bottom: 12px;
+            font-size: 16px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 38px 12px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+            box-sizing: border-box;
+            text-align: right;
+        }
+
+        /* زر تسجيل الدخول الكبير الأزرق */
+        .from-container button[type="submit"] {
+            width: 300px;
+            padding: 12px;
+            background-color: #3182ce;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .from-container button[type="submit"]:hover {
+            background-color: #2b6cb0;
+        }
+
+        /* تنسيق صناديق المعلومات التفاعلية (الأسعار، العناوين، اتصل بنا) */
+        .info-card {
+            display: none;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            box-sizing: border-box;
+            animation: slideUp 0.4s ease-out forwards;
+        }
+
+        /* فكرة ذكية لفتح الصناديق بالـ CSS عند استهداف الرابط */
+        #pricesCard:target,
+        #addressesCard:target,
+        #contactCard:target {
+            display: block;
+        }
+
+        .info-card h3 {
+            margin-top: 0;
+            color: #2d3748;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+            font-size: 18px;
+            text-align: right;
+        }
+
+        .info-card ul {
+            padding-right: 20px;
+            margin: 0;
+            color: #4a5568;
+            line-height: 1.8;
+            text-align: right;
+            list-style: none;
+        }
+
+        .info-card li {
+            margin-bottom: 8px;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            background: #f7fafc;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- شريط القائمة العلوي والشعار المطور -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <div class="logo-icon">💻</div>
+            <div>BAHAA <span>TECH</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#">الرئيسية</a></li>
+            <li><a href="#pricesCard">الأسعار</a></li>
+            <li><a href="#addressesCard">العناوين</a></li>
+            <li><a href="#contactCard">اتصل بنا</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-container">
+
+        <!-- 💡 تحول الصندوق إلى وسم form رسمي لتفعيل ميزة الريلود التلقائي عند الضغط وإرسال البيانات -->
+        <form class="from-container" onsubmit="alert('🎉 تم التحقق وتسجيل الدخول بنجاح!')">
+            <div class="input-group">
+                <label style="text-align: right;">البريد الإلكتروني</label>
+                <input type="email" placeholder="ادخل البريد الالكتروني" required>
+                <span>📧</span>
+            </div>
+            <div class="input-group">
+                <label style="text-align: right;">كلمة المرور</label>
+                <input type="password" placeholder="ادخل كلمة المرور" required minlength="6">
+                <span>🔑</span>
+            </div>
+            <button type="submit">تسجيل الدخول</button>
+        </form>
+
+        <!-- صندوق الأسعار المربوط بالزر العلوي -->
+        <div id="pricesCard" class="info-card">
+            <h3>💰 قائمة الأسعار المتاحة</h3>
+            <div class="price-item">
+                <span>⏱️ 3 ساعات</span>
+                <span>💵 2 شيكل</span>
+            </div>
+            <div class="price-item">
+                <span>⏱️ 8 ساعات</span>
+                <span>💵 5 شيكل</span>
+            </div>
+        </div>
+
+        <!-- صندوق العناوين المربوط بالزر العلوي -->
+        <div id="addressesCard" class="info-card">
+            <h3>📍 فروعنا وعناويننا</h3>
+            <ul>
+                <li>📍 دير البلح - محطة التحلية الجنوبي</li>
+                <li>📍 دير البلح - البلد</li>
+                <li>📍 غزة - شارع صلاح الدين</li>
+                <li>☕ كافي لاكاسا - غزة</li>
+                <li>💻 لاف توب</li>
+                <li>☕ كافي هنري</li>
+                <li>☕ كافي الندكس</li>
+            </ul>
+        </div>
+
+        <!-- صندوق اتصل بنا المربوط بالزر العلوي -->
+        <div id="contactCard" class="info-card">
+            <h3>📞 خدمة العملاء والدعم</h3>
+            <p
+                style="font-weight: bold; font-size: 18px; color: #3182ce; text-align: center; margin: 15px 0; direction: ltr;">
+                📱 0594835296
+            </p>
+            <p style="font-size: 14px; color: #718096; text-align: center;">اضغط على الرقم للتواصل المباشر معنا.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
