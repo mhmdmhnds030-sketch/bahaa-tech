@@ -4,7 +4,7 @@
 <head>
     <title>bahaa tech</title>
     <style>
-        /* حركات الظهور والدخول الناعم للشاشة */
+ 
         @keyframes fellbackground {
             from {
                 background-color: #ffffff;
@@ -44,7 +44,7 @@
             position: absolute;
         }
 
-        /* تنسيق شريط التنقل العلوي الثابت والموزع */
+ 
         .navbar {
             width: 100%;
             background-color: white;
@@ -57,8 +57,7 @@
             box-sizing: border-box;
             margin-bottom: 40px;
         }
-
-        /* تنسيق الشعار (لوجو اللابتوب) */
+ 
         .logo {
             display: flex;
             align-items: center;
@@ -89,7 +88,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* قائمة أزرار الناف بار العلوية */
+ 
         .nav-links {
             display: flex;
             gap: 15px;
@@ -117,7 +116,7 @@
             box-shadow: 0 0 10px rgba(66, 153, 225, 0.4);
         }
 
-        /* حاوية مرنة تجمع الصناديق والفورم */
+ 
         .content-container {
             display: flex;
             flex-direction: column;
@@ -167,8 +166,7 @@
             box-sizing: border-box;
             text-align: right;
         }
-
-        /* زر تسجيل الدخول الكبير الأزرق */
+ 
         .from-container button[type="submit"] {
             width: 300px;
             padding: 12px;
@@ -186,7 +184,7 @@
             background-color: #2b6cb0;
         }
 
-        /* تنسيق صناديق المعلومات التفاعلية (الأسعار، العناوين، اتصل بنا) */
+ 
         .info-card {
             display: none;
             background: white;
@@ -227,21 +225,31 @@
             margin-bottom: 8px;
         }
 
+        
         .price-item {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             font-weight: 600;
             background: #f7fafc;
-            padding: 8px 12px;
+            padding: 12px 15px;
             border-radius: 6px;
             margin-bottom: 8px;
+            direction: rtl; 
+        }
+        
+    
+        .price-item span {
+            position: static !important; 
+        }
+: 8px;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- شريط القائمة العلوي والشعار المطور -->
+   
     <nav class="navbar">
         <a href="#" class="logo">
             <div class="logo-icon">💻</div>
@@ -257,8 +265,8 @@
 
     <div class="content-container">
 
-        <!-- 💡 تحول الصندوق إلى وسم form رسمي لتفعيل ميزة الريلود التلقائي عند الضغط وإرسال البيانات -->
-        <form class="from-container" onsubmit="alert('🎉 تم التحقق وتسجيل الدخول بنجاح!')">
+      
+        <form class="from-container"  
             <div class="input-group">
                 <label style="text-align: right;">البريد الإلكتروني</label>
                 <input type="email" placeholder="ادخل البريد الالكتروني" required>
@@ -272,7 +280,7 @@
             <button type="submit">تسجيل الدخول</button>
         </form>
 
-        <!-- صندوق الأسعار المربوط بالزر العلوي -->
+     
         <div id="pricesCard" class="info-card">
             <h3>💰 قائمة الأسعار المتاحة</h3>
             <div class="price-item">
@@ -285,7 +293,7 @@
             </div>
         </div>
 
-        <!-- صندوق العناوين المربوط بالزر العلوي -->
+ 
         <div id="addressesCard" class="info-card">
             <h3>📍 فروعنا وعناويننا</h3>
             <ul>
@@ -299,7 +307,7 @@
             </ul>
         </div>
 
-        <!-- صندوق اتصل بنا المربوط بالزر العلوي -->
+ 
         <div id="contactCard" class="info-card">
             <h3>📞 خدمة العملاء والدعم</h3>
             <p
