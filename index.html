@@ -4,15 +4,9 @@
 <head>
     <title>bahaa tech</title>
     <style>
- 
         @keyframes fellbackground {
-            from {
-                background-color: #ffffff;
-            }
-
-            to {
-                background-color: #f0f2f5;
-            }
+            from { background-color: #ffffff; }
+            to { background-color: #f0f2f5; }
         }
 
         @keyframes slideUp {
@@ -20,7 +14,6 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -37,27 +30,25 @@
             animation: fellbackground 1s ease-out forwards;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             direction: rtl;
-            /* لترتيب العناصر بشكل عربي صحيح يمين ويسار */
         }
 
         span {
             position: absolute;
         }
-
  
         .navbar {
             width: 100%;
             background-color: white;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             display: flex;
-            justify-content: space-between;
-            /* يفصل الشعار يمين والأزرار يسار */
+            justify-content: space-between; /* يفصل الشعار يمين والأزرار يسار */
             align-items: center;
             padding: 15px 50px;
             box-sizing: border-box;
             margin-bottom: 40px;
         }
- 
+
+        
         .logo {
             display: flex;
             align-items: center;
@@ -88,7 +79,7 @@
             -webkit-text-fill-color: transparent;
         }
 
- 
+        
         .nav-links {
             display: flex;
             gap: 15px;
@@ -115,7 +106,6 @@
             border-color: #3182ce;
             box-shadow: 0 0 10px rgba(66, 153, 225, 0.4);
         }
-
  
         .content-container {
             display: flex;
@@ -126,7 +116,7 @@
             max-width: 400px;
         }
 
-        /* تنسيق الصندوق الأبيض والظل الفخم للنموذج */
+    
         .from-container {
             background-color: white;
             padding: 30px;
@@ -184,7 +174,7 @@
             background-color: #2b6cb0;
         }
 
- 
+  
         .info-card {
             display: none;
             background: white;
@@ -196,10 +186,8 @@
             animation: slideUp 0.4s ease-out forwards;
         }
 
-        /* فكرة ذكية لفتح الصناديق بالـ CSS عند استهداف الرابط */
-        #pricesCard:target,
-        #addressesCard:target,
-        #contactCard:target {
+     
+        #pricesCard:target, #addressesCard:target, #contactCard:target {
             display: block;
         }
 
@@ -225,7 +213,7 @@
             margin-bottom: 8px;
         }
 
-        
+ 
         .price-item {
             display: flex;
             justify-content: space-between;
@@ -235,21 +223,17 @@
             padding: 12px 15px;
             border-radius: 6px;
             margin-bottom: 8px;
-            direction: rtl; 
+            direction: rtl;  
         }
         
-    
         .price-item span {
-            position: static !important; 
-        }
-: 8px;
+            position: static !important; /* يلغي الـ absolute ويمنع الخدش تماماً */
         }
     </style>
 </head>
 
 <body>
-
-   
+ 
     <nav class="navbar">
         <a href="#" class="logo">
             <div class="logo-icon">💻</div>
@@ -264,9 +248,9 @@
     </nav>
 
     <div class="content-container">
-
-      
-        <form class="from-container"  
+        
+ 
+        <form class="from-container" onsubmit="alert('🎉 تم التحقق وتسجيل الدخول بنجاح!')">
             <div class="input-group">
                 <label style="text-align: right;">البريد الإلكتروني</label>
                 <input type="email" placeholder="ادخل البريد الالكتروني" required>
@@ -280,7 +264,7 @@
             <button type="submit">تسجيل الدخول</button>
         </form>
 
-     
+        <!-- صندوق الأسعار المصلح والمحمي بالكامل من التداخل والخدش -->
         <div id="pricesCard" class="info-card">
             <h3>💰 قائمة الأسعار المتاحة</h3>
             <div class="price-item">
@@ -292,7 +276,6 @@
                 <span>💵 5 شيكل</span>
             </div>
         </div>
-
  
         <div id="addressesCard" class="info-card">
             <h3>📍 فروعنا وعناويننا</h3>
@@ -307,11 +290,10 @@
             </ul>
         </div>
 
- 
+    
         <div id="contactCard" class="info-card">
             <h3>📞 خدمة العملاء والدعم</h3>
-            <p
-                style="font-weight: bold; font-size: 18px; color: #3182ce; text-align: center; margin: 15px 0; direction: ltr;">
+            <p style="font-weight: bold; font-size: 18px; color: #3182ce; text-align: center; margin: 15px 0; direction: ltr;">
                 📱 0594835296
             </p>
             <p style="font-size: 14px; color: #718096; text-align: center;">اضغط على الرقم للتواصل المباشر معنا.</p>
@@ -319,5 +301,4 @@
     </div>
 
 </body>
-
 </html>
