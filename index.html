@@ -4,6 +4,7 @@
 <head>
     <title>bahaa tech</title>
     <style>
+ 
         @keyframes fellbackground {
             from { background-color: #ffffff; }
             to { background-color: #f0f2f5; }
@@ -29,12 +30,13 @@
             min-height: 100vh;
             animation: fellbackground 1s ease-out forwards;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            direction: rtl;
+            direction: rtl; /* لترتيب العناصر بشكل عربي صحيح يمين ويسار */
         }
 
         span {
             position: absolute;
         }
+
  
         .navbar {
             width: 100%;
@@ -47,8 +49,7 @@
             box-sizing: border-box;
             margin-bottom: 40px;
         }
-
-        
+ 
         .logo {
             display: flex;
             align-items: center;
@@ -78,8 +79,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        
+ 
         .nav-links {
             display: flex;
             gap: 15px;
@@ -113,10 +113,11 @@
             align-items: center;
             gap: 20px;
             width: 100%;
-            max-width: 400px;
+            max-width: 360px; /* العرض المنظم والمطابق تماماً */
+            box-sizing: border-box;
         }
 
-    
+ 
         .from-container {
             background-color: white;
             padding: 30px;
@@ -136,7 +137,7 @@
             flex-direction: column;
             gap: 8px;
             margin-bottom: 20px;
-            width: 300px;
+            width: 100%;
             display: flex;
         }
 
@@ -156,9 +157,10 @@
             box-sizing: border-box;
             text-align: right;
         }
+
  
         .from-container button[type="submit"] {
-            width: 300px;
+            width: 100%;
             padding: 12px;
             background-color: #3182ce;
             color: white;
@@ -174,7 +176,7 @@
             background-color: #2b6cb0;
         }
 
-  
+   
         .info-card {
             display: none;
             background: white;
@@ -186,7 +188,7 @@
             animation: slideUp 0.4s ease-out forwards;
         }
 
-     
+ 
         #pricesCard:target, #addressesCard:target, #contactCard:target {
             display: block;
         }
@@ -213,7 +215,7 @@
             margin-bottom: 8px;
         }
 
- 
+  
         .price-item {
             display: flex;
             justify-content: space-between;
@@ -223,11 +225,11 @@
             padding: 12px 15px;
             border-radius: 6px;
             margin-bottom: 8px;
-            direction: rtl;  
+            direction: rtl;
         }
         
         .price-item span {
-            position: static !important; /* يلغي الـ absolute ويمنع الخدش تماماً */
+            position: static !important; /* يلغي الـ absolute ويمنع الخدش والتداخل */
         }
     </style>
 </head>
@@ -247,9 +249,10 @@
         </ul>
     </nav>
 
+ 
     <div class="content-container">
         
- 
+        <!-- نموذج تسجيل الدخول الرسمي -->
         <form class="from-container" onsubmit="alert('🎉 تم التحقق وتسجيل الدخول بنجاح!')">
             <div class="input-group">
                 <label style="text-align: right;">البريد الإلكتروني</label>
@@ -264,7 +267,7 @@
             <button type="submit">تسجيل الدخول</button>
         </form>
 
-        <!-- صندوق الأسعار المصلح والمحمي بالكامل من التداخل والخدش -->
+  
         <div id="pricesCard" class="info-card">
             <h3>💰 قائمة الأسعار المتاحة</h3>
             <div class="price-item">
@@ -276,7 +279,8 @@
                 <span>💵 5 شيكل</span>
             </div>
         </div>
- 
+
+   
         <div id="addressesCard" class="info-card">
             <h3>📍 فروعنا وعناويننا</h3>
             <ul>
@@ -289,8 +293,7 @@
                 <li>☕ كافي الندكس</li>
             </ul>
         </div>
-
-    
+ 
         <div id="contactCard" class="info-card">
             <h3>📞 خدمة العملاء والدعم</h3>
             <p style="font-weight: bold; font-size: 18px; color: #3182ce; text-align: center; margin: 15px 0; direction: ltr;">
